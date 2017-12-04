@@ -1,5 +1,5 @@
 ## Note: Our Caffe version does not work with CuDNN 6
-FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
+FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu14.04
 
 ## The download package
 ENV DISPNET_TAR="dispflownet-release-docker.tar.gz"
