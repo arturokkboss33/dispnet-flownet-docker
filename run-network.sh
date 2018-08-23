@@ -143,7 +143,8 @@ if test $VERBOSITY -ge 2; then
     --workdir "${WORKDIR}" \
     -it "$CONTAINER" python demo.py "${FIRST_INPUT}" "${SECOND_INPUT}" "${OUTPUT}" "${GPU_IDX}";
 else
-  nvidia-docker run \
+  docker run \
+	--runtime=nvidia \
     --rm \
     --volume "${PWD}:/input-output:rw" \
     --workdir "${WORKDIR}" \

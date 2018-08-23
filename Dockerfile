@@ -1,6 +1,15 @@
 ## Note: Our Caffe version does not work with CuDNN 6
 FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu14.04
 
+## Maintainer
+MAINTAINER Arturo Gomez Chavez "a.gomezchavez@jacobs-university.de"
+
+## Arguments for users
+ARG user
+ARG userid
+ARG group
+ARG groupid
+
 ## The download package
 ENV DISPNET_TAR="dispflownet-release-docker.tar.gz"
 
@@ -47,4 +56,10 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get autoclean -y && \
     rm -rf /var/lib/apt/lists/*
+
+## 5.-Set up users and groups
+##RUN addgroup --gid $groupid $group && \
+##        adduser --uid $userid --gid $groupid --shell /bin/bash $user && \
+##        echo "$user ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/$user && \
+##        chmod 0440 /etc/sudoers.d/$user
 
